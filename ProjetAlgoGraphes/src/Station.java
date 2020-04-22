@@ -7,6 +7,13 @@ public class Station {
                 mNumberStation;
     private Point mCoordinated;
 
+    /**
+     * Représente une station de Métro
+     * @param nameStation le nom de la station
+     * @param numberLine la ligne qui passe par cette station
+     * @param numberStation le numéro de la station
+     * @param coordinated les coordonnées de la stations.
+     */
     public Station(String nameStation, int numberLine, int numberStation, Point coordinated){
         mNameStation = nameStation;
         mNumberLine  = numberLine;
@@ -14,18 +21,34 @@ public class Station {
         mCoordinated   = coordinated.getLocation();
     }
 
+    /**
+     * Retourne le nom de la station
+     * @return nom
+     */
     public String getNameStation() {
         return mNameStation;
     }
 
+    /**
+     * Retourne le numéro de ligne
+     * @return ligne
+     */
     public int getNumberLine() {
         return mNumberLine;
     }
 
+    /**
+     * Retourne  le numéro de la station.
+     * @return numéro
+     */
     public int getNumberStation() {
         return mNumberStation;
     }
 
+    /**
+     * Retourne les coordonnées de la station.
+     * @return coordonnées.
+     */
     public Point getCoordinated() {
         return mCoordinated;
     }

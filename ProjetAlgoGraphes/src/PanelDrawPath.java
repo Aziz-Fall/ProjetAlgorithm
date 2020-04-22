@@ -7,16 +7,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class PanelDrawPath extends JPanel {
-    private static final int sWIDTH  = 725;
-    private static final int sHEIGHT = 20;
+    private static final int sHEIGHT  = 700;
+    private static final int sWIDTH = 20;
     private ArrayList<Station> mPath;
+
+
+    /**
+     * Trace les stations qui forment le plus court chemin.
+     * @param path ArrayList de station.
+     */
     public PanelDrawPath(ArrayList<Station> path){
         mPath = path;
     }
     @Override
     public void paintComponent(Graphics g) {
         try{
-            System.out.println("In repaint...");
             Image img = ImageIO.read(new File("../metro_bis.bmp"));
             g.drawImage(img, 0, 0, this);
         }catch (IOException e){
@@ -29,18 +34,18 @@ public class PanelDrawPath extends JPanel {
 
         for( int i = 0; i < mPath.size() - 1; i++ ){
             g2.draw(new Line2D.Double(mPath.get(i).getCoordinated().getX(),
-                                      sWIDTH - mPath.get(i).getCoordinated().getY(),
+                                      sHEIGHT - mPath.get(i).getCoordinated().getY(),
                                       mPath.get(i + 1).getCoordinated().getX(),
-                                      sWIDTH - mPath.get(i + 1).getCoordinated().getY()));
+                                      sHEIGHT - mPath.get(i + 1).getCoordinated().getY()));
         }
 
-        g.setColor(Color.BLUE);
-        g.fillOval((int)mPath.get(0).getCoordinated().getX(),
-                sWIDTH - (int)mPath.get(0).getCoordinated().getY(),
-                sHEIGHT, sHEIGHT);
-        g.setColor(Color.GREEN);
-        g.fillOval((int)mPath.get(mPath.size() - 1).getCoordinated().getX(),
-                sWIDTH - (int)mPath.get(mPath.size() - 1).getCoordinated().getY(),
-                sHEIGHT, sHEIGHT);
+        Button b1 = new Button(mPath.get(0).getCoordinated(), mPath.get(0));
+        Button b2 = new Button(mPath.get(mPath.size() - 1).getCoordinated(), mPath.get(mPath.size() - 1));
+        b1.setBackground(Color.GREEN);
+        b2.setBackground(Color.BLUE);
+        b1.setSize(new Dimension(30, 30));
+        b2.setSize(new Dimension(30, 30));
+        this.add(b1);
+        this.add(b2);
     }
 }

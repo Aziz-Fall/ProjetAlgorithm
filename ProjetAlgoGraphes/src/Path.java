@@ -16,12 +16,17 @@ public class Path extends JFrame {
 
     private boolean mCloseWindow;
 
+    /**
+     * La Fenêtre qui affiche le plus court chemin.
+     * @param path listes stations
+     * @param title titre de la fenêtre.
+     */
     public Path(ArrayList<Station> path, String title){
         this.setName(title);
         this.setSize(new Dimension(sWIDTH, sHeight));
         this.setResizable(false);
         this.setUndecorated(true);
-        this.setLocationRelativeTo(null);
+        //this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(Window.EXIT_ON_CLOSE);
 
         mButtonClose        = new JButton("Close Window");

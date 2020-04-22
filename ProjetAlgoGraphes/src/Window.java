@@ -49,13 +49,11 @@ public class Window extends JFrame implements ActionListener{
         if( mNbClick == 0 ){
             mDeb = Integer.parseInt(actionEvent.getActionCommand());
             mDijkstra.setNumberLineBegin(mDeb);
-            System.out.println("NBclik : " + mNbClick + " deb: " + mDeb);
             setNbClick(getNbClick() + 1);
         }
         else if( mNbClick == 1 ){
             mFin = Integer.parseInt(actionEvent.getActionCommand());
             mDijkstra.setNumberLineEnd(mFin);
-            System.out.println("NBclik : " + mNbClick + " fin: " + mFin);
             setNbClick(getNbClick() + 1);
             if( mNbClick >= 2 ){
                 mDijkstra.getShortestPath(mGraph, mDijkstra);

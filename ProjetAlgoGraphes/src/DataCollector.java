@@ -7,9 +7,13 @@ public class DataCollector {
     private static final char sSUMMIT           = 'V';
     private static final char sSTOPPED          = 'E';
     private static final String sSEPARATOR      = " ";
-    private static final String CARRIAGE_RETURN = "\n";
-    private final static int NB_STATIONS        = 376;
 
+    /**
+     * Initialiser le graphe
+     * @param g le graphe
+     * @param nameFile le nom du fichier contenant les données du graphe
+     * @return le graphe g initialisé
+     */
     public Graph recoverDataGraph(Graph g, String nameFile){
         try {
             File f                = new File(nameFile);
@@ -43,6 +47,11 @@ public class DataCollector {
         return g;
     }
 
+    /**
+     * Découpe une ligne de caractéres par une espace et initialise une station
+     * @param readedLine la ligne a découpé
+     * @return une Station
+     */
     public Station splitLine(String readedLine){
         String[] s;
 
@@ -55,19 +64,4 @@ public class DataCollector {
 
         return new Station(s[5], line, number, new Point(x, y));
     }
-
-    /*
-    public static void main(String[] args) throws IOException {
-        DataCollector dataCollector = new DataCollector();
-        Graph g                     = new Graph();
-        g                           = dataCollector.recoverDataGraph(g, "../metro_bis.txt");
-        Dijkstra d = new Dijkstra(55, 112);
-        d.getShortestPath(g, d);
-
-       ArrayList<Station> path =  d.getPath(d, g);
-        for (Station station:
-             path) {
-            System.out.println(station.toString());
-        }
-    }*/
 }
