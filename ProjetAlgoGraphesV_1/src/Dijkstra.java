@@ -104,7 +104,7 @@ public class Dijkstra {
     {
         for( int i = 0; i < sNB_STATIONS; i++)
         {
-            parent[i] = ( g.getNetWork()[begin][i].getWeight() == sINFINITY ) ? sNO_PARENT : begin;
+            parent[i] = ( g.getNetWork()[begin][i].getWeight() == sINFINITY )? sNO_PARENT : begin;
             stationVisited[i] = 0;
             dist[i] = g.getNetWork()[begin][i].getWeight();
         }
@@ -129,7 +129,8 @@ public class Dijkstra {
         return true;
     }
 
-    public void printPath(Dijkstra d, Graph g){
+    public ArrayList<Station> getPath(Dijkstra d, Graph g){
+        ArrayList<Station> buildPath = new ArrayList<Station>();
         int e = d.getNumberLineEnd();
         while(e != d.getNumberLineBegin())
         {
@@ -142,52 +143,49 @@ public class Dijkstra {
         //Inversion du liste de chemin.
         Collections.reverse(d.getStationsPath());
 
-        ArrayList<Station> s = new ArrayList<Station>();
-        s.add(d.getStationsPath().get(0));
-        for( int i = 1; i < d.getStationsPath().size() - 1; i++ ){
-            if( d.getStationsPath().get(i).getNumberLine() != d.getStationsPath().get(i + 1).getNumberLine() ){
-                s.add(d.getStationsPath().get(i));
-                s.add(d.getStationsPath().get(i + 1));
-            }
+        //Écriture du chemin à parcourir.
+        int p2 = 1, p1 = 0, tmp;
 
+        buildPath.add(g.getStations().get(d.getNumberLineBegin()));
+
+        System.out.println("- Vous êtes à " + g.getStations().get(d.getNumberLineBegin()).getNameStation());
+
+        while (p2 < d.getStationsPath().size()) {
+            if ((g.getNetWork()[p1][p2].getTerminus() != sNO_TERMINUS) && (d.getStationsPath().get(p1).getNumberStation() == d.getNumberLineBegin())) {
+                tmp = p1 + 1;
+                if (d.getStationsPath().get(p1).getNumberStation() == 30)
+                    System.out.print("- Prenez la ligne 3bis ");
+                else if (d.getStationsPath().get(p1).getNumberStation() == 70)
+                    System.out.print("- Prenez la ligne 7bis ");
+                else
+                    System.out.print("- Prenez la ligne " + d.getStationsPath().get(p1).getNumberLine());
+                int x = d.getStationsPath().get(p1).getNumberStation(), y = d.getStationsPath().get(tmp).getNumberStation();
+                System.out.println(" direction " + g.getStations().get(g.getNetWork()[x][y].getTerminus()).getNameStation());
+            }
+            int x = d.getStationsPath().get(p1).getNumberStation(), y = d.getStationsPath().get(p2).getNumberStation();
+            if (g.getNetWork()[x][y].getTerminus() == sNO_TERMINUS) {
+                buildPath.add(g.getStations().get(x));
+                System.out.print("- A " + g.getStations().get(x).getNameStation() + " prenez la ligne ");
+                if (g.getStations().get(x).getNumberLine() == 30)
+                    System.out.print("3bis ");
+                else if (g.getStations().get(x).getNumberLine() == 70)
+                    System.out.print("7bis ");
+                else
+                    System.out.print(g.getStations().get(x).getNumberLine());
+                if (d.getStationsPath().get(p2).getNumberLine() != d.getNumberLineEnd()) {
+                    tmp = p2 + 1;
+                    int x1 = d.getStationsPath().get(p2).getNumberStation(), y1 = d.getStationsPath().get(tmp).getNumberStation();
+                    System.out.println(" direction " + g.getStations().get(g.getNetWork()[x1][y1].getTerminus()).getNameStation());
+                } else
+                    System.out.println("");
+            }
+            ++p1; ++p2;
         }
-        s.add(d.getStationsPath().get(d.getStationsPath().size() - 1));
-
-        System.out.println("Vous êtes: " + d.getStationsPath().get(0).getNameStation() + " Line: " + d.getStationsPath().get(0).getNumberLine());
-        if( 1 < d.getStationsPath().size() ){
-            int x1 = d.getStationsPath().get(1).getNumberStation(), y1 = d.getStationsPath().get(2).getNumberStation();
-            int numStation = g.getNetWork()[x1][y1].getTerminus();
-            if( numStation == sNO_TERMINUS )
-                numStation = x1;
-            if( numStation == 30 ){
-                System.out.print("- Prenez la ligne 3bis ");
-            }else if( numStation == 70 ){
-                System.out.print("- Prenez la ligne 7bis ");
-            }else {
-                System.out.print("- Prenez la ligne " + d.getStationsPath().get(0).getNumberLine());
-            }
-            System.out.println(" direction " + g.getStations().get(numStation).getNameStation());
-        }
-
-        for( int i = 2; i < s.size() - 1; i += 2 ){
-            int x = s.get(i).getNumberStation(),
-                    y = s.get(i + 1).getNumberStation();
-            int station = g.getNetWork()[x][y].getTerminus();
-            System.out.print("- A " + g.getStations().get(x).getNameStation() );
-             if( station == 30 ){
-                System.out.print(" prenez la ligne 3bis ");
-            }else if( station == 70 ){
-                System.out.print(" prenez la ligne 7bis ");
-            }else {
-                System.out.print(" prenez la ligne " + g.getStations().get(x).getNumberLine());
-            }
-            if( station == sNO_TERMINUS ){
-                station = y;
-            }
-                System.out.println(" direction " + g.getStations().get(station).getNameStation());
-        }
-
         System.out.println("Vous devriez arriver à " + g.getStations().get(d.getNumberLineEnd()).getNameStation() + " dans " + getTime(d.getDuration()));
+
+        buildPath.add(g.getStations().get(d.getNumberLineEnd()));
+
+        return buildPath;
     }
 
     private String getTime(int times){

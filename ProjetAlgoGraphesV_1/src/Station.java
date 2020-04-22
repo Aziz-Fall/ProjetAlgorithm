@@ -36,7 +36,7 @@ public class Station {
                 "mNameStation='" + mNameStation + '\'' +
                 ", mNumberLine=" + mNumberLine +
                 ", mNumberStation=" + mNumberStation +
-                ", mCoordinated=" + mCoordinated +
+                ", mCoordinated{ x: " + mCoordinated.getX() + " y: " + mCoordinated.getY() +
                 '}';
     }
 }

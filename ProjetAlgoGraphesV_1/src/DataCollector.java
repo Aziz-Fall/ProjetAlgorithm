@@ -28,10 +28,10 @@ public class DataCollector {
                     int weight = Integer.parseInt(s[3]);
                     int dir1   = Integer.parseInt(s[4]);
                     int dir2   = Integer.parseInt(s[5]);
-                    //ligne
+
                     g.getNetWork()[x][y].setTerminus(dir1);
                     g.getNetWork()[x][y].setWeight(weight);
-                    //Colonne
+
                     g.getNetWork()[y][x].setTerminus(dir2);
                     g.getNetWork()[y][x].setWeight(weight);
                 }
