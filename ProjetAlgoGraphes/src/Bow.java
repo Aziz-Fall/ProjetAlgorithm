@@ -1,13 +1,19 @@
+ /**
+ * Cette classe représente un arc entre deux stations de métro.
+ * @version 0.9.0
+ * @author FALL, HARAL, TAMARA
+ */
 public class Bow {
+
     private int mWeight; // Le poids d'un arc
     private int mTerminus; // le terminus de la ligne qui passe par cet arc.
 
     private final static int NOT_TERMINUS = 9999;
     private final static int NOT_BOW      = 8888;
 
-    /**
-     * Cette classe représente un arc du graphe.
-     */
+     /**
+      * Constructeur de classe par défaut.
+      */
     public Bow(){
         mWeight   = NOT_BOW;
         mTerminus = NOT_TERMINUS;

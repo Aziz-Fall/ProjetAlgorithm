@@ -6,23 +6,29 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Cette classe représente Le composant qui affiche le plan du métro et
+ * trace le plus court chemin entre deux stations de métro sélectionnées.
+ * @version 0.9.0
+ * @author FALL, HARAL, TAMARA
+ */
 public class PanelDrawPath extends JPanel {
     private static final int sHEIGHT  = 700;
-    private static final int sWIDTH = 20;
     private ArrayList<Station> mPath;
 
 
     /**
-     * Trace les stations qui forment le plus court chemin.
+     * Constructeur du composant PanelDrawPath.
      * @param path ArrayList de station.
      */
     public PanelDrawPath(ArrayList<Station> path){
         mPath = path;
     }
+
     @Override
     public void paintComponent(Graphics g) {
         try{
-            Image img = ImageIO.read(new File("../metro_bis.bmp"));
+            Image img = ImageIO.read(new File("../metro.bmp"));
             g.drawImage(img, 0, 0, this);
         }catch (IOException e){
             e.printStackTrace();

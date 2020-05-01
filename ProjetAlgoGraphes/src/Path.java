@@ -6,6 +6,12 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
+/**
+ * Cette classe représente Le composant qui ajoute un autre composant qui affiche le plan du métro et
+ * trace le plus court chemin entre deux stations de métro sélectionnées.
+ * @version 0.9.0
+ * @author FALL, HARAL, TAMARA
+ */
 public class Path extends JFrame {
     private final static int sWIDTH       = 700;
     private final static int sHeight      = 725;
@@ -17,7 +23,7 @@ public class Path extends JFrame {
     private boolean mCloseWindow;
 
     /**
-     * La Fenêtre qui affiche le plus court chemin.
+     * Le constructeur du composant Path qui affiche le plus court chemin.
      * @param path listes stations
      * @param title titre de la fenêtre.
      */
@@ -66,10 +72,17 @@ public class Path extends JFrame {
         this.setVisible(true);
     }
 
+    /**
+     * Modifie le boolean qui indique si la fenêtre doit être fermer.
+     * @param closeWindow boolean
+     */
     private void setCloseWindow(boolean closeWindow) {
         mCloseWindow = closeWindow;
     }
 
+    /**
+     * Vérifie si la fenêtre doit être fermer si oui elle la ferme.
+     */
     private void closeWindow(){
         if( mCloseWindow ) {
             this.dispose();

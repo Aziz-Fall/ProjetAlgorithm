@@ -1,6 +1,11 @@
 import java.awt.Point;
 import java.util.ArrayList;
 
+/**
+ * Cette classe représente une station de métro
+ * @version 0.9.0
+ * @author FALL, HARAL, TAMARA
+ */
 public class Station {
     private String mNameStation;
     private int mNumberLine,
@@ -8,7 +13,7 @@ public class Station {
     private Point mCoordinated;
 
     /**
-     * Représente une station de Métro
+     * Constructeur de la classe Station
      * @param nameStation le nom de la station
      * @param numberLine la ligne qui passe par cette station
      * @param numberStation le numéro de la station

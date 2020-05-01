@@ -2,14 +2,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
+/**
+ * Cette classe représente un button d'une station de métro un
+ * @version 0.9.0
+ * @author FALL, HARAL, TAMARA
+ */
 public class Button extends JButton implements MouseListener {
     private Station mStation;
     private JLabel  mLabel;
     private boolean mClick;
 
     /**
-     * Représente une Station de Metro
+     * Constructeur de la classe Button d' une Station de Metro
      * @param p coordonnées d'une station de Metro
      * @param station station de Metro
      */

@@ -2,6 +2,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
+/**
+ * Cette classe représente L'algorithme de Dijsktra
+ * @version 0.9.0
+ * @author FALL, HARAL, TAMARA
+ */
 public class Dijkstra {
     
     private int mNumberLineBegin;
@@ -17,7 +22,7 @@ public class Dijkstra {
     private final static int sVISITED     = 1;
 
     /**
-     * Algorithme dijkstra initialisé avec la ligne de départ et la ligne d'arrivée.
+     * Constructeur de la class Dijkstra initialisé avec la ligne de départ et la ligne d'arrivée.
      * @param numberLineBegin ligne de départ
      * @param numberLineEnd ligne de d'arrivée
      */
@@ -30,7 +35,7 @@ public class Dijkstra {
     }
 
     /**
-     * Algorithme dijkstra par défaut.
+     * Constructeur de la class Dijkstra par défaut.
      */
     public Dijkstra(){
         mDuration        = 0;

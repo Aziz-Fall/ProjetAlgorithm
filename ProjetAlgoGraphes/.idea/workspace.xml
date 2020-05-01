@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="CUSTOM_SCOPE_NAME" value="Current File" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="2d95d556-a373-428e-a2e4-9d8931ebb7d1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +25,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="android.project.structure" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -59,14 +65,18 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="693" y="289" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1586368356442" />
-    <state x="743" y="297" width="424" height="479" key="FileChooserDialogImpl" timestamp="1587411317977">
+    <state x="707" y="276" width="495" height="520" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1587561902389">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="743" y="297" width="424" height="479" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1587411317977" />
-    <state x="464" y="162" key="SettingsEditor" timestamp="1587310901958">
+    <state x="707" y="276" width="495" height="520" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1080@0.0.1920.1080" timestamp="1587561902389" />
+    <state x="743" y="297" width="424" height="479" key="FileChooserDialogImpl" timestamp="1587562328166">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="464" y="162" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1587310901958" />
+    <state x="743" y="297" width="424" height="479" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1587562328166" />
+    <state x="464" y="162" width="1024" height="840" key="SettingsEditor" timestamp="1587562331814">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="464" y="162" width="1024" height="840" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1587562331814" />
     <state x="638" y="365" key="com.intellij.ide.util.TipDialog" timestamp="1586516929112">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -85,12 +95,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Dijkstra.java</url>
-          <line>218</line>
+          <line>223</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Dijkstra.java</url>
-          <line>217</line>
+          <line>222</line>
           <properties class="Dijkstra" method="printPath">
             <option name="EMULATED" value="true" />
           </properties>

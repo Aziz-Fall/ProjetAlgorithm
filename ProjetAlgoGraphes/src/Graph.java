@@ -1,5 +1,9 @@
 import java.util.ArrayList;
-
+/**
+ * Cette classe représente un graphe représenté par une matrice
+ * @version 0.9.0
+ * @author FALL, HARAL, TAMARA
+ */
 public class Graph {
 
     private final static int NB_STATIONS = 376;
@@ -7,7 +11,7 @@ public class Graph {
     private Bow[][] mNetWork; // la matrice qui représente tous les arcs.
 
     /**
-     * Représent un graphe vide
+     * Constructeur par Défaut de la class Graph
      */
     public Graph(){
         mStations = new ArrayList<Station>(NB_STATIONS);
