@@ -247,8 +247,8 @@ public class Dijkstra {
         s.add(d.getStationsPath().get(d.getStationsPath().size() - 1));
 
         //Traçage du chemin.
-        System.out.println("Vous êtes: " + d.getStationsPath().get(0).getNameStation() + " Line: " + d.getStationsPath().get(0).getNumberLine());
-        if( 1 < d.getStationsPath().size() ){
+        System.out.println("Vous êtes: " + d.getStationsPath().get(0).getNameStation());
+        if( 2 < d.getStationsPath().size() ){
             int x1 = d.getStationsPath().get(1).getNumberStation(), y1 = d.getStationsPath().get(2).getNumberStation();
             int numStation = g.getNetWork()[x1][y1].getTerminus();
             if( numStation == sNO_TERMINUS )
@@ -260,6 +260,12 @@ public class Dijkstra {
             }else {
                 System.out.print("- Prenez la ligne " + d.getStationsPath().get(0).getNumberLine());
             }
+            System.out.println(" direction " + g.getStations().get(numStation).getNameStation());
+        }
+        else {
+            int x1 = d.getStationsPath().get(0).getNumberStation(), y1 = d.getStationsPath().get(1).getNumberStation();
+            int numStation = g.getNetWork()[x1][y1].getTerminus();
+            System.out.print("- Prenez la ligne " + d.getStationsPath().get(0).getNumberLine());
             System.out.println(" direction " + g.getStations().get(numStation).getNameStation());
         }
 
@@ -290,9 +296,9 @@ public class Dijkstra {
      * @return une chaine de caractére contenant les données converties.
      */
     private String getTime(int times){
-        int h = times / 3600, min = (times % 3600)/60;
+        int h = times / 3600, min = (times % 3600)/60, se = (times % 3600)%60;
         String s = "";
-        s += ( h > 0 ) ? h +" H " + min +" min." : min + " min.";
+        s += h +" H " + min +" min " + se + " s.";
         return s;
     }
 }
